@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import db from "../lib/db";
+import { useEffect, useState } from "react";
 import TaskCard from "./components/TaskCard";
+import TaskForm from "./components/TaskForm";
 
 type Task = {
   id: number;
@@ -18,17 +18,22 @@ type Task = {
 export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  useEffect(() => {
+  function loadTasks() {
     fetch("/api/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
+  }
+
+  useEffect(() => {
+    loadTasks();
   }, []);
 
   return (
-    <div style = {{ padding: "2rem"}}>
+    <div style={{ padding: "2rem" }}>
       <h1>My Tasks</h1>
+      <TaskForm onTaskCreated={loadTasks} />
       {tasks.map((task) => (
-      <TaskCard key = {task.id} task={task}/>
+        <TaskCard key={task.id} task={task} />
       ))}
     </div>
   );
