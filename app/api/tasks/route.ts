@@ -2,9 +2,13 @@
 import { NextResponse } from "next/server";
 import db from "@/lib/db";
 
-export async function GET() {
-    const stmt = db.prepare("SELECT * FROM tasks WHERE archived = 0");
-    const tasks = stmt.all();
+export async function GET(request: Request) {
+
+    const { searchParams } = new URL(request.url);
+    const showArchived = searchParams.get("archived") === "true";
+
+    const stmt = db.prepare("SELECT * FROM tasks WHERE archived = ?");
+    const tasks = stmt.all(showArchived ? 1 : 0);
     return NextResponse.json(tasks);
 }
 
