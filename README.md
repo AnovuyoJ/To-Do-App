@@ -1,8 +1,8 @@
-## To-Do App
+# To-Do App
 
 A basic to-do list app for your tasks.
 
-# Features
+## Features
 - Create, edit, and archive tasks.
 - Each task has a Title, Description, Due Date, and Topic
 - Three fixed statuses: ToDo, In-Progress, and Complete.
@@ -10,23 +10,23 @@ A basic to-do list app for your tasks.
 - View tasks as a list, sortable by Topic, Status, or Due Date.
 - View archived tasks separately, with the option to unarchive.
 
-## Running It
-# Requirements
+# Running It
+## Requirements
 
 Node.js: v20.x (LTS) or later
 npm: v10.x or later (ships with Node.js)
 
-# 1. Install dependencies
+## 1. Install dependencies
 npm install
 
-# 2. Run the App
+## 2. Run the App
 npm run dev
 http://localhost:3000
 
-# 3. Run the tests
+## 3. Run the tests
 npm test
 
-# Project Structure
+## Project Structure
 ```
 to-do-app/
 ├── app/
