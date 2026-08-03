@@ -27,7 +27,7 @@ http://localhost:3000
 npm test
 
 # Project Structure
-
+```
 to-do-app/
 ├── app/
 │   ├── page.tsx                 # Main page: fetches, sorts, and displays tasks
@@ -51,3 +51,4 @@ to-do-app/
 │   └── todos.db                 # SQLite database file (created automatically, gitignored)
 └── README.md
 
+```
