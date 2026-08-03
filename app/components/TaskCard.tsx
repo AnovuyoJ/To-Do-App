@@ -1,17 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-type Task = {
-  id: number;
-  title: string;
-  description: string | null;
-  due_date: string;
-  topic: string;
-  status: string;
-  archived: number;
-  created_at: string;
-};
+import { Task } from "@/lib/sortTasks";
 
 export default function TaskCard({
   task,
