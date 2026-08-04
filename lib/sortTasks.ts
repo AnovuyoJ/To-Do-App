@@ -13,6 +13,10 @@ export type Task = {
 export function sortTasks(tasks: Task[], sortBy: "topic" | "status" | "due_date"): Task[] {
   const statusOrder = { "Todo": 0, "In-Progress": 1, "Complete": 2 };
 
+  export function isOverdue(task: Task, now: Date = new Date()): boolean {
+  return new Date(task.due_date) < now && task.status !== "Complete";
+};
+
   return [...tasks].sort((a, b) => {
     if (sortBy === "topic") {
       return a.topic.localeCompare(b.topic);
