@@ -20,6 +20,7 @@ export default function TaskCard({
   const [topic, setTopic] = useState(task.topic);
   const [status, setStatus] = useState(task.status);
   
+  
   const overdue = isOverdue(task);
 
   async function handleToggleArchive() {
@@ -77,7 +78,7 @@ export default function TaskCard({
         <h3>{task.title}</h3>
         {task.description && <p>{task.description}</p>}
         <p>Topic: {task.topic}</p>
-        <p>Due: {task.due_date} {isOverdue && <strong style={{ color: "red" }}>(Overdue)</strong>}</p>
+        <p>Due: {task.due_date}{" "} {overdue && <strong style={{ color: "red" }}>(Overdue)</strong>}</p>
         <p>Status: {task.status}</p>
 
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.5rem" }}>
