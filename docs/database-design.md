@@ -1,6 +1,6 @@
 # Database Schema
 
-The To-Do list application uses SQLite to store task data and the database currentlycontains a single table.
+The To-Do list application uses SQLite to store task data, and the database currently contains a single table.
 
 ## Entity Relationship Diagram
 
@@ -18,7 +18,7 @@ erDiagram
     }
 ```
 
-## Table: ``tasks`
+## Table: `tasks`
 
 | Column | Data Type | Constraints | Description |
 |--------|-----------|-------------|-------------|
