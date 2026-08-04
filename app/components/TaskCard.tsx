@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Task } from "@/lib/sortTasks";
+import { isOverdue } from "@/lib/sortTasks";
 
 export default function TaskCard({
   task,
@@ -18,8 +19,8 @@ export default function TaskCard({
   const [dueDate, setDueDate] = useState(task.due_date);
   const [topic, setTopic] = useState(task.topic);
   const [status, setStatus] = useState(task.status);
-
-  const isOverdue = new Date(task.due_date) < new Date() && task.status !== "Complete";
+  
+  const overdue = isOverdue(task);
 
   async function handleToggleArchive() {
     await fetch(`/api/tasks/${task.id}`, {
